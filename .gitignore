@@ -1,0 +1,27 @@
+terraform/.terraform/**
+
+#Exclude IDE Configurations
+.idea/
+*.iml
+*.classpath
+*.project
+.settings/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+#Exclude build artifacts
+*.log
+*.tmp
+
+
+*.target
+target*/
+target/*
+target/
+target
+
+
+.env
