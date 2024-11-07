@@ -5,15 +5,15 @@ on:
     branches:
       - master
       - UAT
-      - Working_Email_Code_Locally # Add additional branches if needed
+      - dev
 
 env:
-  DOCKER_IMAGE_NAME: "thebuckeyeman20/api:PlaceholderContainer"
-  ECR_IMAGE_NAME: "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/youtube-containers:PlaceholderContainer"
-  BRANCH: "lambda"
+  DOCKER_IMAGE_NAME: "thebuckeyeman20/youtube:JobCheckService"
+  ECR_IMAGE_NAME: "${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/youtube-containers:JobCheckService"
+  BRANCH: "dev"
   CD_REPO_OWNER: "TheBuckeyeMan"
-  IAC_REPO_NAME: "Finalized_API_IAC"
-  CD_WORKFLOW_ID: "ci.yml"
+  IAC_REPO_NAME: "Youtube_Job_Verification_IAC"
+  CD_WORKFLOW_ID: "cd.yml"
 
 jobs:
   Maven_Build:
