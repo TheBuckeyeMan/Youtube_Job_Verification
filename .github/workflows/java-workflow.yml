@@ -140,4 +140,3 @@ jobs:
             -H "X-GitHub-Api-Version: 2022-11-28" \
             https://api.github.com/repos/$CD_REPO_OWNER/$IAC_REPO_NAME/actions/workflows/$CD_WORKFLOW_ID/dispatches \
             -d "{\"ref\": \"$BRANCH\"}"
-            
