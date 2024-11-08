@@ -14,7 +14,6 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.example.lambdatemplate.config.LambdaConfig;
 import com.example.lambdatemplate.service.CheckStatus;
-// import org.springframework.core.env.PropertySource;
 
 public class LambdaHandler implements RequestHandler<Object, Object> {
     private CheckStatus checkStatus;
