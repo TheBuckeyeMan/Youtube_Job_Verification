@@ -48,7 +48,6 @@ public class LambdaHandler implements RequestHandler<Object, Object> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-   
         //Add additional Service Methods Here
         return "Status Check Successfully Occured";
     }
