@@ -14,10 +14,6 @@ env:
   CD_REPO_OWNER: "TheBuckeyeMan"
   IAC_REPO_NAME: "Youtube_Job_Verification_IAC"
   CD_WORKFLOW_ID: "cd.yml"
-  EMAIL: ${{ secrets.EMAIL }}
-  EMAIL_KEY: ${{ secrets.EMAIL_KEY }}
-  EMAIL_TO: ${{ secrets.EMAIL_TO }}
-  EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
 
 
 jobs:
