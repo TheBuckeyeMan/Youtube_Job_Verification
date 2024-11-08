@@ -1,7 +1,6 @@
 package com.example.lambdatemplate.config;
 
 import java.util.Properties;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,6 +11,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.lambda.LambdaClient;
 import software.amazon.awssdk.services.s3.S3Client;
 
 
@@ -63,5 +63,10 @@ public class LambdaConfig {
         props.put("mail.debug", "true");
 
         return mailSender;
+    }
+
+    @Bean
+    public LambdaClient lambdaClient(){
+        return LambdaClient.builder().build();
     }
 }
