@@ -1,5 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
+
 Resources:
   # See https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html
   # for more info to see how to tune the lambda function configs based on your use case.

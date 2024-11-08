@@ -21,6 +21,7 @@ import software.amazon.awssdk.services.s3.S3Client;
 @PropertySource("classpath:/application.yml")
 public class LambdaConfig {
     private static Logger log = LoggerFactory.getLogger(LambdaConfig.class);
+    
     @Value("${spring.mail.username}")
     private String email;
 
