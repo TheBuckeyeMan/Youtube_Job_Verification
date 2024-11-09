@@ -44,7 +44,7 @@ public class LambdaHandler implements RequestHandler<Object, Object> {
     @Override
     public Object handleRequest(final Object input, final Context context) {
         try {
-            checkStatus.downloadLogFilesFromS3("logging-event-driven-bucket-1220-16492640", "Testing/test.csv");
+            checkStatus.downloadLogFilesFromS3("logging-event-driven-bucket-1220-16492640", "youtube-app/youtube-logs.csv");
         } catch (IOException e) {
             e.printStackTrace();
         }
