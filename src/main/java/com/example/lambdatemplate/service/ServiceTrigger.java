@@ -27,7 +27,11 @@ public class ServiceTrigger {
     }
 
     public void triggerNextLambda(String nextServiceName){
+        log.info("The value of lambda1arn is: " + lambda1arn);
+        log.info("The value of lambda2arn is: " + lambda2arn);
+        log.info("The value of nextServiceName before lambda invoke is: " + nextServiceName);
         String functionArn = getFunctionArnForService(nextServiceName);
+        log.info("The Function ARN Found was:" + functionArn);
         if (functionArn != null) {
             invokeLambda(functionArn);
         } else {
@@ -36,6 +40,7 @@ public class ServiceTrigger {
     }
 
     private String getFunctionArnForService(String serviceName) {
+        log.info("The value of serviceName before checking each case to assign an arn is: " + serviceName);
         switch (serviceName){
             case "youtube-service-1":
                 return lambda1arn;
