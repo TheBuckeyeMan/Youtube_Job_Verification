@@ -18,4 +18,4 @@ variables:
 next:
   lambda:
     lambda1arn: "arn:aws:lambda:us-east-2:339712758982:function:youtube-service-1"
-    lambda2arn: "arn:aws:lambda:us-east-2:339712758982:function:youtube-service-1"
+    lambda2arn: "arn:aws:lambda:us-east-2:339712758982:function:youtube-service-2"
