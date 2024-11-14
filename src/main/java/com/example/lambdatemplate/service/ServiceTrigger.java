@@ -24,9 +24,11 @@ public class ServiceTrigger {
 
     public ServiceTrigger(LambdaClient lambdaClient) {
         this.lambdaClient = lambdaClient;
+        //add constructor to send error email if lambda arn is unable to be found
     }
 
     public void triggerNextLambda(String nextServiceName){
+        log.info("The value of nextServiceName is: " + nextServiceName);
         log.info("The value of lambda1arn is: " + lambda1arn);
         log.info("The value of lambda2arn is: " + lambda2arn);
         log.info("The value of nextServiceName before lambda invoke is: " + nextServiceName);
@@ -36,15 +38,16 @@ public class ServiceTrigger {
             invokeLambda(functionArn);
         } else {
             log.warn("No ARN Found for service: " + nextServiceName);
+            //send email that says lambda arn is unable to be found and need supdated
         }
     }
 
     private String getFunctionArnForService(String serviceName) {
         log.info("The value of serviceName before checking each case to assign an arn is: " + serviceName);
         switch (serviceName){
-            case "youtube-service-1":
+            case "youtube-service-1,":
                 return lambda1arn;
-            case "youtube-service-2":
+            case "youtube-service-2,":
                 return lambda2arn;
             default:
                 log.warn("Service not recognized:" + serviceName);
