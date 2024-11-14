@@ -20,6 +20,15 @@ public class ServiceTrigger {
     @Value("${next.lambda.lambda2arn}")
     private String lambda2arn;
 
+    @Value("${next.lambda.lambda3arn}")
+    private String lambda3arn;
+
+    @Value("${next.lambda.lambda4arn}")
+    private String lambda4arn;
+
+    @Value("${next.lambda.lambda5arn}")
+    private String lambda5arn;
+
 
 
     public ServiceTrigger(LambdaClient lambdaClient) {
@@ -46,9 +55,13 @@ public class ServiceTrigger {
         log.info("The value of serviceName before checking each case to assign an arn is: " + serviceName);
         switch (serviceName){
             case "youtube-service-1,":
-                return lambda1arn;
-            case "youtube-service-2,":
                 return lambda2arn;
+            case "youtube-service-2,":
+                return lambda3arn;
+            case "youtube-service-3,":
+                return lambda4arn;
+            case "youtube-service-4,":
+                return lambda5arn;
             default:
                 log.warn("Service not recognized:" + serviceName);
                 return null;
