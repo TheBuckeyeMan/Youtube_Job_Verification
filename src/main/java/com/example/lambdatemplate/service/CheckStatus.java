@@ -56,7 +56,7 @@ public class CheckStatus {
                 if (status.contains("Success")){
                     log.info("Prior Application: " + serviceName + " Succeeded");
                     //Add in code here to trigger the next lambda function
-                    serviceTrigger.triggerNextLambda(serviceName);
+                    serviceTrigger.triggerNextService(serviceName);
                 } else {
                     log.info("Prior Applicaiton: " + serviceName + " Failed");
                     File LogFile = createTempFile(fileContent);

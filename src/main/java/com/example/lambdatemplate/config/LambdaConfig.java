@@ -11,6 +11,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.ecs.EcsClient;
 import software.amazon.awssdk.services.lambda.LambdaClient;
 import software.amazon.awssdk.services.s3.S3Client;
 
@@ -37,6 +38,14 @@ public class LambdaConfig {
             .region(Region.US_EAST_2)
             .build();
     }
+
+    public class AwsEcsConfig {
+        @Bean
+        public EcsClient ecsClient() {
+            return EcsClient.create();
+        }
+    }
+
     @Bean
     public JavaMailSender getJavaMailSender() {
         System.out.println("EMAIL CHECK ENV: " + System.getenv("EMAIL"));
