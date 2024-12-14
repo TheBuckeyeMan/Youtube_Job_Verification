@@ -112,7 +112,7 @@ public class ServiceTrigger {
             case "youtube-service-2,":
                 return lambda3arn;
             case "youtube-service-3,":
-                return ecstaskarn; // ECS Task ARN
+                return ecstaskarn;
             case "youtube-service-4,":
                 return lambda5arn;
             case "youtube-service-5,":
