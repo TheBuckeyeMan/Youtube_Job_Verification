@@ -23,11 +23,14 @@ public class ServiceTrigger {
     @Value("${next.lambda.lambda3arn}")
     private String lambda3arn;
 
-    @Value("${next.lambda.lambda4arn}")
-    private String lambda4arn;
+    @Value("${next.lambda.ecstaskarn}")
+    private String ecstaskarn;
 
     @Value("${next.lambda.lambda5arn}")
     private String lambda5arn;
+
+    @Value("${next.lambda.lambda6arn}")
+    private String lambda6arn;
 
 
 
@@ -59,9 +62,13 @@ public class ServiceTrigger {
             case "youtube-service-2,":
                 return lambda3arn;
             case "youtube-service-3,":
-                return lambda4arn;
+                return ecstaskarn;
             case "youtube-service-4,":
                 return lambda5arn;
+            case "youtube-service-5,":
+                return lambda6arn;
+            case "youtube-service-6,":
+                return "All Tasks Completed Successfully!";
             default:
                 log.warn("Service not recognized:" + serviceName);
                 return null;
