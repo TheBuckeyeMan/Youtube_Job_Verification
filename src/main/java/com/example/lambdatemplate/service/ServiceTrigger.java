@@ -56,8 +56,14 @@ public class ServiceTrigger {
 
         if (functionArn != null) {
             if (functionArn.startsWith("arn:aws:ecs")) {
+                log.info("Initiating ECS Task: " + functionArn);
                 invokeEcsTask(functionArn);
+            } else if (functionArn.equals(lambda2arn)){
+                log.info("Kicking off Lambda: " + functionArn + " and " + lambda2arn);
+                invokeLambda(functionArn);
+                invokeLambda(lambda6arn);
             } else {
+                log.info("Kicking off Lambda: " + functionArn);
                 invokeLambda(functionArn);
             }
         } else {
