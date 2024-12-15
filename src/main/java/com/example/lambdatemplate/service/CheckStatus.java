@@ -24,13 +24,15 @@ public class CheckStatus {
     private static final Logger log = LoggerFactory.getLogger(CheckStatus.class);
     private final S3Client s3Client;
     private final EmailOnError emailOnError;
+    private final ServiceTrigger serviceTrigger;
     
     @Value("${variables.emailto}")
     String emailRecipiant;
 
-    public CheckStatus(S3Client s3Client, EmailOnError emailOnError){
+    public CheckStatus(S3Client s3Client, EmailOnError emailOnError, ServiceTrigger serviceTrigger){
         this.s3Client = s3Client;
         this.emailOnError = emailOnError;
+        this.serviceTrigger = serviceTrigger;
     }
     //Download Existing S3 Logging File
     public String downloadLogFilesFromS3(String bucketName, String logFileKey) throws IOException{
@@ -54,6 +56,7 @@ public class CheckStatus {
                 if (status.contains("Success")){
                     log.info("Prior Application: " + serviceName + " Succeeded");
                     //Add in code here to trigger the next lambda function
+                    serviceTrigger.triggerNextService(serviceName);
                 } else {
                     log.info("Prior Applicaiton: " + serviceName + " Failed");
                     File LogFile = createTempFile(fileContent);
@@ -62,9 +65,6 @@ public class CheckStatus {
                         "Appllication Error At: " + serviceName,
                         "The application: " + serviceName +" has failed and required investigation. All downstreem services have been temporatily deactivated untill the issue has been fixed",
                         LogFile);
-
-                    //Add in code here to trigger an email as we will have an error message
-                    //Prevent next service form kicking off
                 }
                 return status;
             } else {
@@ -80,7 +80,7 @@ public class CheckStatus {
             }
             
         } catch (S3Exception e) {
-            log.error("Log file not found, creating a new log file.", e);
+            log.error("Log file not found, Defaulting to error out. Services not kicked off, emails not sent", e);
             return ""; // Return empty if log file not found
         }
     }
@@ -100,5 +100,4 @@ public class CheckStatus {
         }
         return "Service Unidentified";
     }
-
 }
