@@ -20,7 +20,7 @@ next:
     lambda1arn: "arn:aws:lambda:us-east-2:339712758982:function:youtube-service-1"
     lambda2arn: "arn:aws:lambda:us-east-2:339712758982:function:youtube-service-2"
     lambda3arn: "arn:aws:lambda:us-east-2:339712758982:function:youtube-service-3"
-    ecstaskarn: "arn:aws:ecs:us-east-2:339712758982:task-definition/youtube-service-4:1"
+    ecstaskarn: "arn:aws:ecs:us-east-2:339712758982:task-definition/youtube-service-4:2"
     lambda5arn: "arn:aws:lambda:us-east-2:339712758982:function:youtube-service-5"
     lambda6arn: "arn:aws:lambda:us-east-2:339712758982:function:youtube-service-6"
 ecs:
