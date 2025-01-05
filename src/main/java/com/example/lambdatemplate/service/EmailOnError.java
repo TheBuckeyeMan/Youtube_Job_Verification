@@ -9,8 +9,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
-
-
 @Component
 public class EmailOnError {
     private static final Logger log = LoggerFactory.getLogger(EmailOnError.class);
